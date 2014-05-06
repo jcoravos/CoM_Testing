@@ -61,10 +61,15 @@ Perim = load(strcat(measdir,measPerim));
 
 %% Load Membrane and Rok movie
     %loads tif image sequences from Edge analysis into time stacks (3d) 
+    %{
+    %This section is only required if the movie is particularly large and
+    you want to improve speed by declaring membranestack and rokstack
+    before populating them.
 imread(strcat(membraneRoot,'001_z005_c002.tif'));   %declaring membranestack matrix
 [m,n] = size(ans); %this size is in pixels, not microns
 membranestack = zeros(m,n,frame_num); %x position is frame 
 rokstack = zeros(m,n,frame_num);
+    %}
 
 for frame = 1:frame_num;
     if frame < 10
