@@ -58,8 +58,7 @@ end
 %movie2avi(Fmembranes,'/Users/Jonathan/Documents/Matlab/EDGE-1.06/DATA_GUI/CoM Testing/membranesoverlay.avi')
 
 movie(Frok)
-movie2avi(Frok,'/Users/Jonathan/Documents/Matlab/EDGE-1.06/DATA_GUI/CoM Testing/CoMregionprops_filteredr_0.15.avi')
-
+movie2avi(Frok,'/Users/jcoravos/Documents/Matlab/Old System/MATLAB/EDGE-1.06/DATA_GUI/CoM Testing/CoMregionprops_filteredr_0.15.avi')
 
 %this is the original script used to convert the CoM coordinates into a
 %plottable format
