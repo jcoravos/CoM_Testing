@@ -12,12 +12,11 @@ cellmask = zeros(xdim,ydim);
 
 SE = ones(2);%structuring element for eroding the edges of cells. This is to account for the uncertainty about pixel-cell assignment at membranes
 
-
 for time = 1:frame_num
     time
     for cell = 1:cell_num
         if isnan(Vertx_pix{time,1,cell}) == 1 % checks to see whether there is actually a cell here.
-            CellMask{cell,time} = (zeros(712,740));
+            CellMask{cell,time} = (zeros(xdim,ydim));
      
         else
             xdata = Vertx_pix{time,1,cell};
