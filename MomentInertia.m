@@ -61,7 +61,7 @@ end
     Y2(1,:) = Y(2,:);
     Y2(2,:) = Y(1,:);
     ylim([0 1])
-    xlim([0 90])
+    xlim([0 frame_num])
   
     
    
@@ -119,7 +119,7 @@ for p = 1:cell_num
     ylabel('MoI');
     xlabel('frame');
     ylim([0 0.4]);
-    xlim([0 90]);
+    xlim([0 frame_num]);
 end
 
 %% Trash
