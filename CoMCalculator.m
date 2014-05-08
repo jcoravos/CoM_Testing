@@ -72,6 +72,8 @@ for time = 1:frame_num
     time
 end
 
+rokstack = double(rokstack); % this line is to convert the rokstack class for downstream scripts
+
 %figure
 %tit(x) = getframe(imagesc(rokstackF(:,:,1)))
 %imwrite(rokstackF(:,:,1),'/Users/Jonathan/Documents/Matlab/EDGE-1.06/DATA_GUI/CoM Testing/TestImage.tif','tif')
@@ -94,7 +96,7 @@ for time = 1:frame_num
             continue;
         else
             BWMask = CellMask{cell,time}; %This is where the erosion occurs.
-            iso_cell = (rokstackF(:,:,time));
+            iso_cell = (rokstack(:,:,time));
        
            STATS = regionprops(BWMask,iso_cell,'WeightedCentroid','PixelList');
            CoM_x(time,cell) = round(STATS.WeightedCentroid(:,1));

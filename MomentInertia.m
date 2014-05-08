@@ -21,14 +21,14 @@ for time = 1:frame_num
         yrange = [lowy:highy];
    
         
-        cellmass_x = sum(CellMask{cell,time}.*rokstackF(:,:,time));
-        cellmass_y = sum(CellMask{cell,time}.*rokstackF(:,:,time),2)';
+        cellmass_x = sum(CellMask{cell,time}.*rokstack(:,:,time));
+        cellmass_y = sum(CellMask{cell,time}.*rokstack(:,:,time),2)';
         xrange_cent = xrange - CoM_x(time,cell);
         yrange_cent = yrange - CoM_y(time,cell);
             
         mu20 = sum((xrange_cent.^2).*cellmass_x(lowx:highx));
         mu02 = sum((yrange_cent.^2).*cellmass_y(lowy:highy));
-        M00 = sum(sum(CellMask{cell,time}.*rokstackF(:,:,time)));
+        M00 = sum(sum(CellMask{cell,time}.*rokstack(:,:,time)));
                 
         eta20 = mu20/(M00^2);
         eta02 = mu20/(M00^2);
@@ -76,7 +76,7 @@ Iscaled(a) = 0;
 
 for time = 1:frame_num;
     figure
-    imagesc(rokstackF(:,:,time))
+    imagesc(rokstack(:,:,time))
     colormap(gray);
         hold on
     for cell = 1:cell_num
