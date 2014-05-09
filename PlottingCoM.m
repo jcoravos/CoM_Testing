@@ -13,7 +13,7 @@ for time = 1:frame_num;
     centrowscatter(1:cell_num) = 0;
     
     figure %establish frame
-    imagesc(rokstackF(:,:,time))%print correct timepoint background image
+    imagesc(rokstack(:,:,time))%print correct timepoint background image
     colormap(gray)
     hold on
     for cell = 1:cell_num
@@ -58,7 +58,7 @@ end
 %movie2avi(Fmembranes,'/Users/Jonathan/Documents/Matlab/EDGE-1.06/DATA_GUI/CoM Testing/membranesoverlay.avi')
 
 movie(Frok)
-movie2avi(Frok,'/Users/jcoravos/Documents/Matlab/Old System/MATLAB/EDGE-1.06/DATA_GUI/CoM Testing/CoMregionprops_filteredr_0.15.avi')
+movie2avi(Frok,'/Users/jcoravos/Documents/Matlab/Y2 Area change/CoM_movie_050814.avi')
 
 %this is the original script used to convert the CoM coordinates into a
 %plottable format
