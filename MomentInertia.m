@@ -100,7 +100,7 @@ for time = 1:frame_num;
 end
 
 movie(Frok) %(F,x), where x is the number of times to repeat the movie
-movie2avi(Frok,'/Users/Jonathan/Documents/Matlab/EDGE-1.06/DATA_GUI/CoM Testing/MoIoverFrok_r0.16.avi')
+movie2avi(Frok,'/Users/jcoravos/Documents/Matlab/Y2 Area change/MoIoverFrok_Image21_121813_nofilter.avi')
 
 
 %% Plotting Individual Cells
