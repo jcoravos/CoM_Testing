@@ -1,19 +1,18 @@
 %% Extracting Data from Edge Output
-
-frame_num = 42; %time frames in stack
+timestep = 8.3;
 xydim = 0.13; %this is the xy dimension from the metadata, where xydim = microns/pixel. This number needs to be the same as was used in 
                 %Edge, which can be verified by looking at the .csv file in Matlab/EDGE-1.06/
     conv_fact = (1/xydim); % pixels/micron
-zkeep = '_z007'; %zslice to keep
+zkeep = '_z008'; %zslice to keep
 memchannel = '_c002'; %membrane channel
 rokchannel = '_c001'; %Rok (or other signal) channel
 
 %% File Names
 
-rokfileRoot = '/Users/jcoravos/Documents/MATLAB/EDGE-1.06/DATA_GUI/Image21_121813/Myosin/Image21_121813_t';
+rokfileRoot = '/Users/jcoravos/Documents/MATLAB/EDGE-1.06/DATA_GUI/Image5_011113/Myosin/Image5_011113_t';
 %moefile = '/Users/Jonathan/MATLAB/BlebQuant/FixedMoeBlebs/PhallSqhMoe_2/PhallSqhMoe_2_z007_c003.tif'; %adjust the 'z007' here to change the slice.
-membraneRoot = '/Users/jcoravos/Documents/MATLAB/EDGE-1.06/DATA_GUI/Image21_121813/Membranes/Raw/Image21_121813_t';%make this the file used for Edge membrane segmentation
-measdir = '/Users/jcoravos/Documents/MATLAB/EDGE-1.06/DATA_GUI/Image21_121813/Measurements/';
+membraneRoot = '/Users/jcoravos/Documents/MATLAB/EDGE-1.06/DATA_GUI/Image5_011113/Membranes/Raw/Image5_011113_t';%make this the file used for Edge membrane segmentation
+measdir = '/Users/jcoravos/Documents/MATLAB/EDGE-1.06/DATA_GUI/Image5_011113/Measurements/';
     measCenty = 'Membranes--basic_2d--Centroid-y.mat';
     measCentx = 'Membranes--basic_2d--Centroid-x.mat';
     measVerty = 'Membranes--vertices--Vertex-y.mat';
@@ -49,7 +48,7 @@ Vertx = load(strcat(measdir,measVertx));
     %[m n p] = size(Vertx);
     %Vertx = reshape(Vertx,p,m);
 Area = load(strcat(measdir,measArea));
-     Area = Area.data(:,slice,:);
+     Area = squeeze(cell2mat(Area.data(:,slice,:)));
      %[m n p] = size(Area);
      %Area = reshape(Area,p,m);
 Perim = load(strcat(measdir,measPerim));
@@ -57,6 +56,8 @@ Perim = load(strcat(measdir,measPerim));
     %[m n p] = size(Perim);
     %Perim = reshape(Perim,p,m);
 RokInt = load(strcat(measdir,myoInt));
+%% Determine framenum and cellnum
+    [frame_num,cell_num] = size(Area)
 
 %% Convert from microns to pixels
     % all the above cells are in microns. Multiply each cell by the
