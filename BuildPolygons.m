@@ -56,7 +56,7 @@ end
     
 %% Play and save movie
 movie(Fmembranes) %(F,x), where x is the number of times to repeat the movie
-movie2avi(Fmembranes,'/Users/Jonathan/Documents/Matlab/EDGE-1.06/DATA_GUI/CoM Testing/membranesoverlay.avi')
+movie2avi(Fmembranes,'/Users/jcoravos/Desktop/membranesoverlay.avi')
 
 movie(Frok)
-movie2avi(Frok,'/Users/Jonathan/Documents/Matlab/EDGE-1.06/DATA_GUI/CoM Testing/rokoverlay.avi')
+movie2avi(Frok,'/Users/jcoravos/Desktop/rokoverlay.avi')

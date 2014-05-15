@@ -13,7 +13,7 @@ for time = 1:frame_num;
     centrowscatter(1:cell_num) = 0;
     
     figure %establish frame
-    imagesc(rokstackF(:,:,time))%print correct timepoint background image
+    imagesc(rokstack(:,:,time))%print correct timepoint background image
     colormap(gray)
     hold on
     for cell = 1:cell_num
